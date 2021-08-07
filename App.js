@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import FONTS from "../constants/Fonts";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "./src/screens/HomeScreen";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import FONTS from "./src/constants/Fonts";
+
+import HomeScreen from "./src/screens/HomeScreen";
+import SignupScreen from "./src/screens/SignupScreen";
 
 const Stack = createStackNavigator();
 
@@ -23,13 +24,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Signup"
+          component={SignupScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={({ navigation }) => {
-            return {
-              headerShown: false,
-            };
-          }}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -37,6 +39,3 @@ export default function App() {
     <AppLoading />
   );
 }
-const styles = StyleSheet.create({
-  topbar: {},
-});
