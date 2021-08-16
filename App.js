@@ -1,15 +1,13 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
-import FONTS from "./src/constants/Fonts";
 
-import HomeScreen from "./src/screens/HomeScreen";
-import SignupScreen from "./src/screens/SignupScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import AuthNavigator from "./src/navigations/AuthNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import DrawerContent from "./src/navigations/DrawerContent";
 
-const Stack = createStackNavigator();
-
+const Drawer = createDrawerNavigator();
 export default function App() {
   const [fontloaded] = useFonts({
     Black: require("./assets/fonts/Roboto-Black.ttf"),
@@ -22,18 +20,9 @@ export default function App() {
 
   return fontloaded ? (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Signup"
-          component={SignupScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
+      <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+        <Drawer.Screen name="AuthNavigator" component={AuthNavigator} />
+      </Drawer.Navigator>
     </NavigationContainer>
   ) : (
     <AppLoading />

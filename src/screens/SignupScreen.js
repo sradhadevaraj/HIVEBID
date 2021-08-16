@@ -8,6 +8,7 @@ import {
   TextInput,
   CheckBox,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -21,10 +22,10 @@ import IMAGES from "../constants/Images";
 import FONTS from "../constants/Fonts";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import ErrorMessage from "../components/ErrorMessage";
-import SubmitButton from "../components/SubmitButton";
+import ErrorMessage from "../components/forms/ErrorMessage";
+import SubmitButton from "../components/forms/SubmitButton";
 
-export default function SignupScreen() {
+export default function SignupScreen({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -133,16 +134,17 @@ export default function SignupScreen() {
         )}
       </Formik>
 
-      <View
+      <TouchableOpacity
         style={{
           flexDirection: "row",
           alignSelf: "center",
           marginVertical: 25,
         }}
+        onPress={() => navigation.navigate("ProductScreen")}
       >
         <Text style={styles.accounttext}>Already have an account?</Text>
         <Text style={styles.logintext}>LOGIN</Text>
-      </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 }

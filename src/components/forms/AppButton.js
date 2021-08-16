@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import COLORS from "../constants/Colors";
-import FONTS from "../constants/Fonts";
+import COLORS from "../../constants/Colors";
+import FONTS from "../../constants/Fonts";
 import {
   widthPercentageToDP as wp,
   widthPercentageToDP as hp,

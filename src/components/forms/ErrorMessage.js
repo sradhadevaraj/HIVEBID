@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 
 function ErrorMessage({ error, visible }) {
   if (!visible || !error) return null;
