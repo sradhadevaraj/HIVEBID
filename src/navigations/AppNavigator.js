@@ -16,11 +16,11 @@ const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeBackgroundColor: COLORS.PURPLE,
-        activeTintColor: COLORS.WHITE,
-        inactiveBackgroundColor: COLORS.WHITE,
-        inactiveTintColor: COLORS.PURPLE,
+      screenOptions={{
+        tabBarActiveBackgroundColor: COLORS.PURPLE,
+        tabBarActiveTintColor: COLORS.WHITE,
+        tabBarInactiveBackgroundColor: COLORS.WHITE,
+        tabBarInactiveTintColor: COLORS.PURPLE,
       }}
     >
       <Tab.Screen
@@ -38,7 +38,6 @@ const AppNavigator = () => {
         name="Order"
         component={MyOrderScreen}
         options={{
-          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="file" size={26} color={color} />
           ),
@@ -58,7 +57,6 @@ const AppNavigator = () => {
         name="Credit"
         component={CreditScreen}
         options={{
-          headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="gift" size={26} color={color} />
           ),
@@ -68,7 +66,6 @@ const AppNavigator = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={29} color={color} />
           ),

@@ -18,7 +18,14 @@ function SellButton({ onPress }) {
           size={40}
         />
       </View>
-      <Text style={{ position: "absolute", bottom: 0, alignSelf: "center" }}>
+      <Text
+        style={{
+          position: "absolute",
+          bottom: 0,
+          alignSelf: "center",
+          color: COLORS.PURPLE,
+        }}
+      >
         SELL
       </Text>
     </TouchableOpacity>

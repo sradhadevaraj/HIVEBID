@@ -1,9 +1,8 @@
-import "react-native-gesture-handler";
 import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AppNavigator from "./AppNavigator";
+import AppNavigator from "../navigations/AppNavigator";
 import SignupScreen from "../screens/SignupScreen";
 import ProductScreen from "../screens/ProductScreen";
 import MyOrderScreen from "../screens/MyOrderScreen";
@@ -18,27 +17,30 @@ function AuthNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Signup"
+        name="SignupScreen"
         component={SignupScreen}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          gestureEnabled: false,
+        }}
       />
       <Stack.Screen
-        name="Product"
+        name="ProductScreen"
         component={ProductScreen}
         options={{ headerShown: false }}
       />
 
       <Stack.Screen
-        name="Home"
+        name="HomeScreen"
         component={AppNavigator}
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen name="Order" component={MyOrderScreen} />
-      <Stack.Screen name="Sell" component={SellScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Credit" component={CreditScreen} />
-      <Stack.Screen name="Notification" component={NotificationScreen} />
+      <Stack.Screen name="MyOrderScreen" component={MyOrderScreen} />
+      <Stack.Screen name="SellScreen" component={SellScreen} />
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen name="CreditScreen" component={CreditScreen} />
+      <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
     </Stack.Navigator>
   );
 }

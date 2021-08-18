@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import DrawerContent from "./src/navigations/DrawerContent";
 
 const Drawer = createDrawerNavigator();
+
 export default function App() {
   const [fontloaded] = useFonts({
     Black: require("./assets/fonts/Roboto-Black.ttf"),
@@ -21,7 +22,11 @@ export default function App() {
   return fontloaded ? (
     <NavigationContainer>
       <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-        <Drawer.Screen name="AuthNavigator" component={AuthNavigator} />
+        <Drawer.Screen
+          name="AuthNavigator"
+          component={AuthNavigator}
+          options={{ headerShown: false }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   ) : (

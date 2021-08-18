@@ -32,6 +32,10 @@ export default function SignupScreen({ navigation }) {
     name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
+    confirmpassword: Yup.string().oneOf(
+      [Yup.ref("password")],
+      "password does not match"
+    ),
   });
 
   return (
@@ -50,11 +54,16 @@ export default function SignupScreen({ navigation }) {
       </View>
 
       <Formik
-        initialValues={{ email: "", password: "", name: "" }}
-        onSubmit={(values) => console.log(values)}
+        initialValues={{
+          email: "",
+          password: "",
+          name: "",
+          confirmpassword: "",
+        }}
+        onSubmit={() => navigation.navigate("HomeScreen")}
         validationSchema={validationSchema}
       >
-        {({ handleChange, errors, setFieldTouched, touched }) => (
+        {({ handleChange, errors, setFieldTouched, touched, handleBlur }) => (
           <>
             <View style={styles.textinputcontainer}>
               <TextInput
@@ -104,6 +113,8 @@ export default function SignupScreen({ navigation }) {
                 style={styles.textinput}
                 autoCapitalize="none"
                 autoCorrect={false}
+                onBlur={() => setFieldTouched("confirmpassword")}
+                onChangeText={handleChange("confirmpassword")}
                 placeholder="Confirm Password"
                 secureTextEntry
                 textContentType="password"
@@ -115,7 +126,10 @@ export default function SignupScreen({ navigation }) {
                 style={{ marginRight: 15 }}
               />
             </View>
-
+            <ErrorMessage
+              error={errors.confirmpassword}
+              visible={touched.confirmpassword}
+            />
             <View style={styles.privacycontainer}>
               <CheckBox
                 value={isSelected}
@@ -140,7 +154,6 @@ export default function SignupScreen({ navigation }) {
           alignSelf: "center",
           marginVertical: 25,
         }}
-        onPress={() => navigation.navigate("ProductScreen")}
       >
         <Text style={styles.accounttext}>Already have an account?</Text>
         <Text style={styles.logintext}>LOGIN</Text>
@@ -156,7 +169,7 @@ const styles = StyleSheet.create({
   },
   logocontainer: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: 40,
   },
   imglogo: {
     width: wp("29%"),

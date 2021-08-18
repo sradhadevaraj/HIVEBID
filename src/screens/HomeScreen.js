@@ -10,7 +10,6 @@ import {
 } from "react-native";
 
 import Carousel from "../components/home/Carousel";
-import Data from "../constants/Data";
 import SpotBidCard from "../components/home/SpotBidCard";
 import HourlyBid from "../components/home/HourlyBid";
 
@@ -47,7 +46,7 @@ function HomeScreen({ navigation }) {
             name="menu"
             size={24}
             color={COLORS.WHITE}
-            onPress={() => navigation.navigate("DrawerContent")}
+            onPress={() => navigation.openDrawer()}
           />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -67,7 +66,7 @@ function HomeScreen({ navigation }) {
       </View>
       <ScrollView>
         <View>
-          <Carousel data={Data} />
+          <Carousel />
         </View>
         <View style={styles.headingcontainer}>
           <Text style={styles.headingtext}>Spot Bid</Text>

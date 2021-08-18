@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
 import { View, Dimensions, StyleSheet, Platform } from "react-native";
 
+const { width: screenWidth } = Dimensions.get("window");
+
 const ENTRIES1 = [
   {
     illustration:
@@ -15,9 +17,8 @@ const ENTRIES1 = [
       "https://i.postimg.cc/7YFs1JR2/nike-air-max-270-react-white-grey-black-ao4971-001-5-1000x702.jpg",
   },
 ];
-const { width: screenWidth } = Dimensions.get("window");
 
-const MyCarousel = (props) => {
+const Slider = (props) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
@@ -43,22 +44,20 @@ const MyCarousel = (props) => {
     );
   };
 
-  return (
-    <View style={styles.container}>
-      <Carousel
-        ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth - 80}
-        data={entries}
-        renderItem={renderItem}
-        hasParallaxImages={true}
-      />
-    </View>
-  );
+  <View style={styles.container}>
+    <Carousel
+      ref={carouselRef}
+      sliderWidth={screenWidth}
+      sliderHeight={screenWidth}
+      itemWidth={screenWidth - 80}
+      data={entries}
+      renderItem={renderItem}
+      hasParallaxImages={true}
+    />
+  </View>;
 };
 
-export default MyCarousel;
+export default Slider;
 
 const styles = StyleSheet.create({
   container: {
@@ -77,8 +76,5 @@ const styles = StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     resizeMode: "cover",
-  },
-  title: {
-    position: "absolute",
   },
 });

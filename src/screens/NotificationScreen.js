@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 function NotificationScreen(props) {
   return (
@@ -7,8 +7,12 @@ function NotificationScreen(props) {
       style={{
         backgroundColor: "#FAF9F6",
         flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
       }}
-    ></View>
+    >
+      <Text>NotificationScreen</Text>
+    </View>
   );
 }
 

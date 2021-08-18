@@ -10,7 +10,10 @@ function SellScreen({ navigation }) {
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    backgroundColor: "white",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

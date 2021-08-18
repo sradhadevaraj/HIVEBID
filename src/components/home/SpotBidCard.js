@@ -74,16 +74,16 @@ const DETAILS = [
 function SpotBidCard({ navigation }) {
   const [liked, setliked] = useState(false);
   const product = ({ item }) => (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() => navigation.navigate("ProductScreen")}
-    >
-      <View style={styles.container}>
+    <TouchableOpacity activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => navigation.navigate("ProductScreen")}
+      >
         <Image
           source={IMAGES.PRODUCT}
           style={{ width: wp("50%"), height: hp("40%") }}
         />
-      </View>
+      </TouchableOpacity>
       <View style={styles.titleContainer}>
         <Text style={{ fontFamily: FONTS.BLACK, fontSize: 15 }}>
           Nike Air Max SC Men's Sh..
@@ -121,7 +121,7 @@ function SpotBidCard({ navigation }) {
         ItemSeparatorComponent={() => <ItemSeparator width={20} />}
         ListHeaderComponent={() => <ItemSeparator width={15} />}
         ListFooterComponent={() => <ItemSeparator width={15} />}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={product}
       />
     </View>

@@ -20,7 +20,8 @@ import COLORS from "../../constants/Colors";
 
 import FONTS from "../../constants/Fonts";
 import ProgressIndicatar from "../../screens/ProgressIndicatar";
-import TimerMin from "./TimerMin";
+
+import CountTime from "../product/CountTime";
 
 const DATA = [
   {
@@ -72,17 +73,21 @@ const DATA = [
   },
 ];
 
-function HourlyBid(props) {
+function HourlyBid({ navigation }) {
   const [liked, setliked] = useState(false);
   const _productrenderitem = ({ item }) => (
     <TouchableOpacity activeOpacity={0.8}>
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        // onPress={() => console.log("click")}
+        onPress={() => navigation.navigate("ProductScreen")}
+      >
         <Image
           source={item.image}
           style={{ width: wp("50%"), height: hp("40%"), alignSelf: "center" }}
         />
-      </View>
-      <TimerMin />
+      </TouchableOpacity>
+      <CountTime />
       <View style={styles.titleContainer}>
         <Text
           style={{ fontFamily: FONTS.BLACK, fontSize: 15 }}
@@ -121,7 +126,7 @@ function HourlyBid(props) {
         data={DATA}
         renderItem={_productrenderitem}
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         ItemSeparatorComponent={() => <ItemSeparator width={20} />}
         ListHeaderComponent={() => <ItemSeparator width={15} />}
         ListFooterComponent={() => <ItemSeparator width={15} />}
