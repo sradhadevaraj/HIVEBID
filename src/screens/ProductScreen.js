@@ -48,14 +48,14 @@ function ProductScreen({ navigation }) {
             onPress={() => navigation.navigate("HomeScreen")}
           />
         </TouchableOpacity>
-        <View style={styles.timercontainer}>
+        <View style={styles.timerContainer}>
           <Timer />
         </View>
       </View>
       <ScrollView>
         <Slider />
-        <View style={styles.titltecontainer}>
-          <Text style={styles.titletext}>
+        <View style={styles.titlteContainer}>
+          <Text style={styles.titleText}>
             Nike Air Max SC Men's Shoe Running Shoes For Men (Black)
           </Text>
         </View>
@@ -74,12 +74,12 @@ function ProductScreen({ navigation }) {
               alignItems: "center",
             }}
           >
-            <Text style={styles.pricetext}>₹4,196</Text>
-            <Text style={styles.offertext}>5,995</Text>
+            <Text style={styles.priceText}>₹4,196</Text>
+            <Text style={styles.offerText}>5,995</Text>
           </View>
-          <TouchableOpacity activeOpacity={0.5} style={styles.currentbid}>
-            <Text style={styles.currentbidtext}>CURRENT BID</Text>
-            <Text style={styles.currentbidprice}>₹990</Text>
+          <TouchableOpacity activeOpacity={0.5} style={styles.currentBid}>
+            <Text style={styles.currentBidText}>CURRENT BID</Text>
+            <Text style={styles.currentBidPrice}>₹990</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.box}>
@@ -92,17 +92,17 @@ function ProductScreen({ navigation }) {
           </InsetShadow>
         </View>
         <View style={{ alignSelf: "center", marginTop: 20 }}>
-          <Text style={styles.offerprice}>
+          <Text style={styles.offerPrice}>
             Buy this product on offer price without bidding
           </Text>
         </View>
-        <TouchableOpacity activeOpacity={0.5} style={styles.offerrate}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.offerRate}>
           <Text style={{ alignSelf: "center" }}>Buy at ₹3799</Text>
         </TouchableOpacity>
         <View style={{ marginTop: 20, marginLeft: 15 }}>
           <Text style={styles.description}>Description</Text>
-          <View style={styles.descriptioncontainer}>
-            <Text style={styles.descriptiontext}>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.descriptionText}>
               With its easy going lines, heritage track look and of course,
               visible Air cushioning, the Nike Air Max SC is the perfect finish
               to any outfit. The rich mixture of materials adds depth while
@@ -131,22 +131,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
   },
-  timercontainer: {
+  timerContainer: {
     backgroundColor: COLORS.PURPLE,
     width: wp("14%"),
     height: hp("8%"),
     elevation: 3,
   },
-  titltecontainer: {
+  titlteContainer: {
     width: wp("90%"),
     marginTop: 20,
     marginLeft: 15,
   },
-  titletext: {
+  titleText: {
     fontFamily: FONTS.BOLD,
     fontSize: 16,
   },
-  currentbid: {
+  currentBid: {
     backgroundColor: COLORS.PURPLE,
     width: wp("20%"),
     height: hp("10%"),
@@ -154,22 +154,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     elevation: 3,
   },
-  pricetext: {
+  priceText: {
     fontFamily: FONTS.BOLD,
     fontSize: 18,
   },
-  offertext: {
+  offerText: {
     fontFamily: FONTS.REGULAR,
     fontSize: 15,
     marginLeft: 6,
     textDecorationLine: "line-through",
   },
-  currentbidtext: {
+  currentBidText: {
     fontFamily: FONTS.REGULAR,
     fontSize: 10,
     color: COLORS.WHITE,
   },
-  currentbidprice: {
+  currentBidPrice: {
     fontFamily: FONTS.REGULAR,
     fontSize: 14,
     color: COLORS.WHITE,
@@ -181,12 +181,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 25,
   },
-  offerprice: {
+  offerPrice: {
     fontFamily: FONTS.REGULAR,
     fontSize: 12,
     color: COLORS.BLACK,
   },
-  offerrate: {
+  offerRate: {
     width: wp("90%"),
     height: hp("10%"),
     borderColor: COLORS.PURPLE,
@@ -199,13 +199,13 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.BOLD,
     fontSize: 16,
   },
-  descriptiontext: {
+  descriptionText: {
     fontFamily: FONTS.REGULAR,
     fontSize: 14,
     textAlign: "justify",
     lineHeight: 20,
   },
-  descriptioncontainer: {
+  descriptionContainer: {
     width: wp("90%"),
     marginTop: 10,
   },

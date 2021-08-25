@@ -28,6 +28,8 @@ import SubmitButton from "../components/forms/SubmitButton";
 export default function SignupScreen({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
@@ -45,12 +47,12 @@ export default function SignupScreen({ navigation }) {
         translucent={false}
         backgroundColor={COLORS.PURPLE}
       />
-      <View style={styles.logocontainer}>
-        <Image source={IMAGES.LOGO} style={styles.imglogo} />
+      <View style={styles.logoContainer}>
+        <Image source={IMAGES.LOGO} style={styles.imgLogo} />
       </View>
-      <View style={styles.wlmcontainer}>
-        <Text style={styles.textwelcome}>WELCOME!</Text>
-        <Text style={styles.textnewaccount}>Create a New Account</Text>
+      <View style={styles.wlmContainer}>
+        <Text style={styles.textWelcome}>WELCOME!</Text>
+        <Text style={styles.textNewAccount}>Create a New Account</Text>
       </View>
 
       <Formik
@@ -63,11 +65,11 @@ export default function SignupScreen({ navigation }) {
         onSubmit={() => navigation.navigate("HomeScreen")}
         validationSchema={validationSchema}
       >
-        {({ handleChange, errors, setFieldTouched, touched, handleBlur }) => (
+        {({ handleChange, errors, setFieldTouched, touched }) => (
           <>
-            <View style={styles.textinputcontainer}>
+            <View style={styles.textInputContainer}>
               <TextInput
-                style={styles.textinput}
+                style={styles.textInput}
                 placeholder="User Name"
                 autoCapitalize="words"
                 autoCorrect={false}
@@ -76,9 +78,9 @@ export default function SignupScreen({ navigation }) {
               />
             </View>
             <ErrorMessage error={errors.name} visible={touched.name} />
-            <View style={styles.textinputcontainer}>
+            <View style={styles.textInputContainer}>
               <TextInput
-                style={styles.textinput}
+                style={styles.textInput}
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="email-address"
@@ -89,28 +91,29 @@ export default function SignupScreen({ navigation }) {
               />
             </View>
             <ErrorMessage error={errors.email} visible={touched.email} />
-            <View style={styles.textinputpassword}>
+            <View style={styles.textInputPassword}>
               <TextInput
-                style={styles.textinput}
+                style={styles.textInput}
                 autoCapitalize="none"
                 autoCorrect={false}
                 onBlur={() => setFieldTouched("password")}
                 onChangeText={handleChange("password")}
                 placeholder="Password"
-                secureTextEntry
+                secureTextEntry={!showPassword}
                 textContentType="password"
               />
               <MaterialCommunityIcons
-                name="eye"
+                name={showPassword ? "eye-off" : "eye"}
                 size={18}
-                color={COLORS.LIGHT_GRAY}
+                color={COLORS.GRAY}
                 style={{ marginRight: 15 }}
+                onPress={() => setShowPassword(!showPassword)}
               />
             </View>
             <ErrorMessage error={errors.password} visible={touched.password} />
-            <View style={styles.textinputpassword}>
+            <View style={styles.textInputPassword}>
               <TextInput
-                style={styles.textinput}
+                style={styles.textInput}
                 autoCapitalize="none"
                 autoCorrect={false}
                 onBlur={() => setFieldTouched("confirmpassword")}
@@ -120,21 +123,22 @@ export default function SignupScreen({ navigation }) {
                 textContentType="password"
               />
               <MaterialCommunityIcons
-                name="eye"
+                name={showPassword ? "eye-off" : "eye"}
                 size={18}
-                color={COLORS.LIGHT_GRAY}
+                color={COLORS.GRAY}
                 style={{ marginRight: 15 }}
+                onPress={() => setShowPassword(!showPassword)}
               />
             </View>
             <ErrorMessage
-              error={errors.confirmpassword}
-              visible={touched.confirmpassword}
+              error={errors.confirmPassword}
+              visible={touched.confirmPassword}
             />
-            <View style={styles.privacycontainer}>
+            <View style={styles.privacyContainer}>
               <CheckBox
                 value={isSelected}
                 onValueChange={setSelection}
-                style={styles.checkbox}
+                style={styles.checkBox}
               />
               <View style={{ width: wp("60%") }}>
                 <Text style={styles.label}>
@@ -155,8 +159,8 @@ export default function SignupScreen({ navigation }) {
           marginVertical: 25,
         }}
       >
-        <Text style={styles.accounttext}>Already have an account?</Text>
-        <Text style={styles.logintext}>LOGIN</Text>
+        <Text style={styles.accountText}>Already have an account?</Text>
+        <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -167,16 +171,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
   },
-  logocontainer: {
+  logoContainer: {
     alignItems: "center",
     marginTop: 40,
   },
-  imglogo: {
+  imgLogo: {
     width: wp("29%"),
     height: hp("30%"),
   },
 
-  textwelcome: {
+  textWelcome: {
     color: COLORS.PURPLE,
     fontSize: 24,
     fontFamily: FONTS.REGULAR,
@@ -184,12 +188,12 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
     marginTop: 20,
   },
-  textnewaccount: {
+  textNewAccount: {
     fontSize: 13,
     fontFamily: FONTS.REGULAR,
     marginLeft: 15,
   },
-  textinputcontainer: {
+  textInputContainer: {
     width: wp("90%"),
     height: hp("12%"),
     backgroundColor: COLORS.WHITE,
@@ -200,13 +204,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: "center",
   },
-  textinput: {
+  textInput: {
     fontFamily: FONTS.REGULAR,
     fontSize: 13,
     marginLeft: 10,
     width: wp("60%"),
   },
-  textinputpassword: {
+  textInputPassword: {
     width: wp("90%"),
     height: hp("12%"),
     backgroundColor: COLORS.WHITE,
@@ -220,7 +224,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
 
-  privacycontainer: {
+  privacyContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: 15,
@@ -232,11 +236,11 @@ const styles = StyleSheet.create({
     color: COLORS.GRAY,
     fontFamily: FONTS.REGULAR,
   },
-  accounttext: {
+  accountText: {
     fontSize: 10,
     fontFamily: FONTS.REGULAR,
   },
-  logintext: {
+  loginText: {
     fontSize: 10,
     fontFamily: FONTS.REGULAR,
     color: COLORS.PURPLE,

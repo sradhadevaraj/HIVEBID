@@ -43,21 +43,20 @@ const Slider = (props) => {
       </View>
     );
   };
-
-  <View style={styles.container}>
-    <Carousel
-      ref={carouselRef}
-      sliderWidth={screenWidth}
-      sliderHeight={screenWidth}
-      itemWidth={screenWidth - 80}
-      data={entries}
-      renderItem={renderItem}
-      hasParallaxImages={true}
-    />
-  </View>;
+  return (
+    <View style={styles.container}>
+      <Carousel
+        ref={carouselRef}
+        sliderWidth={screenWidth}
+        sliderHeight={screenWidth}
+        itemWidth={screenWidth - 80}
+        data={entries}
+        renderItem={renderItem}
+        hasParallaxImages={true}
+      />
+    </View>
+  );
 };
-
-export default Slider;
 
 const styles = StyleSheet.create({
   container: {
@@ -78,3 +77,4 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
 });
+export default Slider;

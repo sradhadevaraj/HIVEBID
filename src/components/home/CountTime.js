@@ -12,11 +12,11 @@ function CountTime(props) {
       digitStyle={{
         backgroundColor: "#FFF",
         borderWidth: 2,
-        borderColor: COLORS.PURPLE,
+        borderColor: COLORS.GREEN,
       }}
-      digitTxtStyle={{ color: COLORS.PURPLE }}
+      digitTxtStyle={{ color: COLORS.GREEN }}
       timeLabelStyle={{ color: "red", fontWeight: "bold" }}
-      separatorStyle={{ color: COLORS.PURPLE }}
+      separatorStyle={{ color: COLORS.GREEN }}
       timeToShow={["H", "M", "S"]}
       timeLabels={{ m: null, s: null }}
       showSeparator

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function SellScreen({ navigation }) {
+function SellScreen() {
   return (
     <View style={styles.container}>
       <Text>SellScreen</Text>

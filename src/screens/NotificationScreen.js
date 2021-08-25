@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-function NotificationScreen(props) {
+function NotificationScreen() {
   return (
     <View
       style={{

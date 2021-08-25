@@ -27,7 +27,7 @@ function DrawerContent({ navigation }) {
             flexDirection: "row",
           }}
         >
-          <Image source={IMAGES.PROFILE} style={styles.profileimg} />
+          <Image source={IMAGES.PROFILE} style={styles.profileImg} />
           <View
             style={{
               width: wp("70%"),
@@ -49,60 +49,60 @@ function DrawerContent({ navigation }) {
             <Text style={{ fontSize: 10 }}>amelianoah@gmail.com</Text>
           </View>
         </View>
-        <View style={styles.headingcontainer}>
-          <Text style={styles.headingtext}>Categoies</Text>
+        <View style={styles.headingContainer}>
+          <Text style={styles.headingText}>Categoies</Text>
         </View>
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Computer Accessories"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Watches"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Smart Phones"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Home Appliance"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Bags Travel Accessories"
           onPress={() => navigation.navigate("HomeScreen")}
         />
-        <TouchableOpacity style={styles.categorycontainer}>
-          <Text style={styles.categorytext}>view all categories</Text>
+        <TouchableOpacity style={styles.categoryContainer}>
+          <Text style={styles.categoryText}>view all categories</Text>
         </TouchableOpacity>
-        <View style={styles.headingcontainer}>
-          <Text style={styles.headingtext}>Bid Types</Text>
+        <View style={styles.headingContainer}>
+          <Text style={styles.headingText}>Bid Types</Text>
         </View>
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Spot Bid"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="Hourly Bid"
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <DrawerItem
-          style={styles.draweritem}
-          labelStyle={styles.labeltext}
+          style={styles.drawerItem}
+          labelStyle={styles.labelText}
           label="12 Hour Bid"
           onPress={() => navigation.navigate("HomeScreen")}
         />
@@ -131,32 +131,32 @@ function DrawerContent({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  profileimg: {
+  profileImg: {
     width: wp("20%"),
     height: hp("20%"),
     borderRadius: 35,
   },
 
-  headingcontainer: {
+  headingContainer: {
     marginTop: 20,
     marginLeft: 15,
   },
-  headingtext: {
+  headingText: {
     fontSize: 14,
     fontFamily: FONTS.REGULAR,
     color: COLORS.GRAY,
   },
-  draweritem: {
+  drawerItem: {
     marginLeft: 6,
   },
-  labeltext: {
+  labelText: {
     fontSize: 15,
     fontFamily: FONTS.REGULAR,
   },
-  categorycontainer: {
+  categoryContainer: {
     marginLeft: 15,
   },
-  categorytext: {
+  categoryText: {
     color: COLORS.PURPLE,
     fontSize: 11,
   },

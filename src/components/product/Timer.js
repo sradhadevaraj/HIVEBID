@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import COLORS from "../../constants/Colors";
 
-export default App = () => {
+export default Timer = () => {
   const [time, setTime] = useState({ mins: 0, secs: 25 });
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createStackNavigator } from "@react-navigation/stack";
 
 import AppNavigator from "../navigations/AppNavigator";
@@ -19,10 +18,7 @@ function AuthNavigator() {
       <Stack.Screen
         name="SignupScreen"
         component={SignupScreen}
-        options={{
-          headerShown: false,
-          gestureEnabled: false,
-        }}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="ProductScreen"
