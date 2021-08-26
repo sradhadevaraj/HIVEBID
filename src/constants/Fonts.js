@@ -1,3 +1,5 @@
+// Fonts
+
 export default {
   BLACK: "Black",
   BOLD: "Bold",

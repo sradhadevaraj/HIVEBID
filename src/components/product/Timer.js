@@ -1,3 +1,5 @@
+// ProductPage // Timer
+
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import COLORS from "../../constants/Colors";

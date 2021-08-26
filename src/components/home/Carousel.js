@@ -1,3 +1,5 @@
+//Home // Carousel
+
 import React from "react";
 import { View, Dimensions, StyleSheet, Image } from "react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";

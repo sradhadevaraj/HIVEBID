@@ -1,3 +1,5 @@
+// Colors
+
 export default {
   WHITE: "#FFFFFF",
   PURPLE: "#712773",

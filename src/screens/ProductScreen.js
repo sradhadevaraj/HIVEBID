@@ -1,3 +1,5 @@
+// ProductScreen
+
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
@@ -8,6 +10,10 @@ import {
   View,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as wp,
+  widthPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 import COLORS from "../constants/Colors";
 import FONTS from "../constants/Fonts";
@@ -15,11 +21,6 @@ import FONTS from "../constants/Fonts";
 import Timer from "../components/product/Timer";
 import Slider from "../components/product/Slider";
 import InsetShadow from "react-native-inset-shadow";
-
-import {
-  widthPercentageToDP as wp,
-  widthPercentageToDP as hp,
-} from "react-native-responsive-screen";
 
 function ProductScreen({ navigation }) {
   return (
@@ -208,6 +209,7 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     width: wp("90%"),
     marginTop: 10,
+    marginVertical: 5,
   },
   box2: {
     backgroundColor: COLORS.PURPLE,

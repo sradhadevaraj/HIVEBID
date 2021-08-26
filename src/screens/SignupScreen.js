@@ -1,3 +1,5 @@
+// SignupScreen
+
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -14,6 +16,7 @@ import {
   widthPercentageToDP as wp,
   widthPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -21,20 +24,17 @@ import COLORS from "../constants/Colors";
 import IMAGES from "../constants/Images";
 import FONTS from "../constants/Fonts";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ErrorMessage from "../components/forms/ErrorMessage";
 import SubmitButton from "../components/forms/SubmitButton";
 
 export default function SignupScreen({ navigation }) {
   const [isSelected, setSelection] = useState(false);
-
   const [showPassword, setShowPassword] = useState(false);
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
-    confirmpassword: Yup.string().oneOf(
+    confirmPassword: Yup.string().oneOf(
       [Yup.ref("password")],
       "password does not match"
     ),
@@ -60,7 +60,7 @@ export default function SignupScreen({ navigation }) {
           email: "",
           password: "",
           name: "",
-          confirmpassword: "",
+          confirmPassword: "",
         }}
         onSubmit={() => navigation.navigate("HomeScreen")}
         validationSchema={validationSchema}
@@ -116,8 +116,8 @@ export default function SignupScreen({ navigation }) {
                 style={styles.textInput}
                 autoCapitalize="none"
                 autoCorrect={false}
-                onBlur={() => setFieldTouched("confirmpassword")}
-                onChangeText={handleChange("confirmpassword")}
+                onBlur={() => setFieldTouched("confirmPassword")}
+                onChangeText={handleChange("confirmPassword")}
                 placeholder="Confirm Password"
                 secureTextEntry
                 textContentType="password"
@@ -140,6 +140,7 @@ export default function SignupScreen({ navigation }) {
                 onValueChange={setSelection}
                 style={styles.checkBox}
               />
+
               <View style={{ width: wp("60%") }}>
                 <Text style={styles.label}>
                   By clicking on submit, you agree to our Terms of Use and
@@ -223,7 +224,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "space-between",
   },
-
   privacyContainer: {
     flexDirection: "row",
     alignItems: "center",

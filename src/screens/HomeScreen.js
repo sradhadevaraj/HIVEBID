@@ -1,3 +1,5 @@
+// HomeScreen
+
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -126,7 +128,8 @@ const DATA = [
 ];
 
 function HomeScreen({ navigation }) {
-  const [liked, setliked] = useState(false);
+  const [likedList, setlikedList] = useState([]);
+
   const product = ({ item }) => (
     <TouchableOpacity activeOpacity={0.8}>
       <TouchableOpacity
@@ -154,11 +157,18 @@ function HomeScreen({ navigation }) {
         </View>
         <View style={styles.bidContainer}>
           <Text style={{ fontSize: 12 }}>Hourly Bid</Text>
-          <TouchableNativeFeedback onPress={() => setliked(!liked)}>
+          <TouchableNativeFeedback onPress={() => console.log("")}>
             <Ionicons
-              name={liked ? "heart" : "heart-outline"}
+              name={
+                likedList.find((it) => it === item) ? "heart" : "heart-outline"
+              }
               size={25}
-              color={liked ? COLORS.PURPLE : COLORS.PURPLE}
+              color={COLORS.PURPLE}
+              onPress={() => {
+                likedList.find((it) => it === item)
+                  ? setlikedList(likedList.filter((it) => it !== item))
+                  : setlikedList([...likedList, item]);
+              }}
             />
           </TouchableNativeFeedback>
         </View>
@@ -196,11 +206,18 @@ function HomeScreen({ navigation }) {
           <Text style={styles.startingPrice}>{item.startingprice}</Text>
         </View>
         <View style={{ marginTop: 5, alignSelf: "flex-end" }}>
-          <TouchableNativeFeedback onPress={() => setliked(!liked)}>
+          <TouchableNativeFeedback onPress={() => console.log("")}>
             <Ionicons
-              name={liked ? "heart" : "heart-outline"}
+              name={
+                likedList.find((it) => it === item) ? "heart" : "heart-outline"
+              }
               size={25}
-              color={liked ? COLORS.PURPLE : COLORS.PURPLE}
+              color={COLORS.PURPLE}
+              onPress={() => {
+                likedList.find((it) => it === item)
+                  ? setlikedList(likedList.filter((it) => it !== item))
+                  : setlikedList([...likedList, item]);
+              }}
             />
           </TouchableNativeFeedback>
         </View>
@@ -300,7 +317,7 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
-export default HomeScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -355,7 +372,6 @@ const styles = StyleSheet.create({
   mrpText: {
     fontSize: 15,
   },
-
   startingPrice: {
     fontSize: 12,
   },
@@ -399,3 +415,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+export default HomeScreen;
